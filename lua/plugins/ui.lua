@@ -458,7 +458,6 @@ return {
 
   {
     "utilyre/barbecue.nvim",
-    dev = true,
     event = "VeryLazy",
     dependencies = {
       "SmiteshP/nvim-navic",
