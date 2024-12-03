@@ -13,6 +13,13 @@ vim.keymap.set("n", "<right>", "<C-w>l")
 -- change word with <c-c>
 vim.keymap.set("n", "<C-c>", "<cmd>normal! ciw<cr>a")
 
+-- compiler build options
+vim.keymap.set("n", "<leader>cb", "Build")
+vim.keymap.set("n", "<leader>cbs", "<cmd>CompilerStop<cr>")
+vim.keymap.set("n", "<leader>cbr", "<cmd>CompilerRedo<cr>")
+vim.keymap.set("n", "<leader>cbb", "<cmd>CompilerOpen<cr>")
+vim.keymap.set("n", "<leader>cbt", "<cmd>CompilerToggleResults<cr>")
+
 -- htop
 if vim.fn.executable("htop") == 1 then
   vim.keymap.set("n", "<leader>xh", function()
