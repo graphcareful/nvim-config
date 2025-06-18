@@ -12,6 +12,25 @@ return {
 
   -- lsp servers
   {
+    "mrcjkb/rustaceanvim",
+    version = "^6", -- Recommended
+    lazy = false, -- This plugin is already lazy
+    opts = {
+      server = {
+        settings = {
+          ["rust-analyzer"] = {
+            procMacro = {
+              enable = true,
+            },
+            cargo = {
+              allFeatures = true, -- optional, good for macros behind features
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     init = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
@@ -54,6 +73,53 @@ return {
       servers = {
         cssls = {},
         html = {},
+        vtsls = {
+          settings = {
+            vtsls = {
+              autoUseWorkspaceTsdk = true,
+            },
+          },
+        },
+        -- rustaceanvim = {
+        --   settings = {
+        --     -- rust-analyzer language server configuration
+        --     ["rust-analyzer"] = {
+        --       cargo = {
+        --         allFeatures = true,
+        --         loadOutDirsFromCheck = true,
+        --         buildScripts = {
+        --           enable = true,
+        --         },
+        --       },
+        --       -- Add clippy lints for Rust if using rust-analyzer
+        --       checkOnSave = diagnostics == "rust-analyzer",
+        --       -- Enable diagnostics if using rust-analyzer
+        --       diagnostics = {
+        --         enable = diagnostics == "rust-analyzer",
+        --       },
+        --       procMacro = {
+        --         enable = true,
+        --         ignored = {
+        --           ["napi-derive"] = { "napi" },
+        --           ["async-recursion"] = { "async_recursion" },
+        --         },
+        --       },
+        --       files = {
+        --         excludeDirs = {
+        --           ".direnv",
+        --           ".git",
+        --           ".github",
+        --           ".gitlab",
+        --           "bin",
+        --           "node_modules",
+        --           "target",
+        --           "venv",
+        --           ".venv",
+        --         },
+        --       },
+        --     },
+        --   },
+        -- },
         basedpyright = {
           settings = {
             basedpyright = {
